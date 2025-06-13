@@ -1,0 +1,4 @@
+/* pages/category/category.wxss */
+.category-list {
+  padding: 10rpx 0;
+} 

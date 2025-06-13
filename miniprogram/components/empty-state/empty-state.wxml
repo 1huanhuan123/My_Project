@@ -1,0 +1,6 @@
+<!-- components/empty-state/empty-state.wxml -->
+<view class="empty-container">
+  <image class="empty-image" src="/images/empty.png" mode="aspectFit"></image>
+  <view class="empty-text">{{text}}</view>
+  <button class="empty-button" wx:if="{{showButton}}" bindtap="onButtonTap">{{buttonText}}</button>
+</view> 

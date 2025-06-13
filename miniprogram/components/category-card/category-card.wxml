@@ -1,0 +1,13 @@
+<!-- components/category-card/category-card.wxml -->
+<view class="category-card" bindtap="onCategoryTap">
+  <view class="category-icon">
+    <image class="category-icon-img" src="/images/categories/{{category.icon}}.png" mode="aspectFit"></image>
+  </view>
+  <view class="category-info">
+    <view class="category-name">{{category.name}}</view>
+    <view class="category-count">{{count}}张图片</view>
+  </view>
+  <view class="category-arrow">
+    <text class="iconfont icon-arrow"></text>
+  </view>
+</view> 

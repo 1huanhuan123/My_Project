@@ -1,0 +1,35 @@
+<!--pages/album/album.wxml-->
+<view class="container">
+  <view class="page-title">{{title}} <text class="page-subtitle">(共{{total}}张)</text></view>
+  
+  <loading wx:if="{{isLoading && !images.length}}"></loading>
+  
+  <empty-state 
+    wx:elif="{{!images.length}}" 
+    text="暂无图片" 
+    buttonText="立即上传" 
+    showButton="{{true}}" 
+    bind:buttontap="onUploadTap">
+  </empty-state>
+  
+  <view class="image-list" wx:else>
+    <block wx:for="{{images}}" wx:key="_id">
+      <image-card 
+        image="{{item}}" 
+        showActions="{{true}}" 
+        bind:imagetap="onImageTap"
+        bind:deletetap="onDeleteTap"
+        bind:edittap="onEditTap"
+        bind:favoritetap="onFavoriteTap">
+      </image-card>
+    </block>
+    
+    <view class="loading-more" wx:if="{{isLoading && images.length}}">
+      <loading text="加载更多..."></loading>
+    </view>
+    
+    <view class="no-more" wx:if="{{!hasMore && images.length}}">
+      -- 已加载全部图片 --
+    </view>
+  </view>
+</view> 

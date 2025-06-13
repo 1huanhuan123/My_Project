@@ -1,0 +1,16 @@
+<!--pages/category/category.wxml-->
+<view class="container">
+  <view class="page-title">图片分类</view>
+  
+  <loading wx:if="{{isLoading}}"></loading>
+  
+  <view class="category-list" wx:else>
+    <block wx:for="{{categories}}" wx:key="id">
+      <category-card 
+        category="{{item}}" 
+        count="{{categoryCount[item.id] || 0}}" 
+        bind:categorytap="onCategoryTap">
+      </category-card>
+    </block>
+  </view>
+</view> 

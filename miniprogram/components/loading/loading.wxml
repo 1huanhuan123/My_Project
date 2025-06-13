@@ -1,0 +1,5 @@
+<!-- components/loading/loading.wxml -->
+<view class="loading-container">
+  <view class="loading-spinner"></view>
+  <view class="loading-text">{{text}}</view>
+</view> 

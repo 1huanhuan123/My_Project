@@ -1,0 +1,55 @@
+# 微信小程序开发工具配置
+project.config.json
+project.private.config.json
+
+# 编译和构建输出
+miniprogram_npm/
+node_modules/
+dist/
+.miniprogram/
+
+# 环境配置
+**/node_modules/**
+**/miniprogram_npm/**
+**/*.log
+**/package-lock.json
+
+# 编辑器配置
+.DS_Store
+.idea/
+.vscode/
+.VSCodeCounter/
+*.swp
+*.swo
+.editorconfig
+*~
+
+# 其他
+.tmp
+.svn/
+.git/
+*.orig
+*.log
+*.DS_Store
+*.bak
+
+# 项目特定文件
+uploadCloudFunction.sh
+
+# Windows 系统文件
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# macOS 系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# 云开发相关
+**/cloudfunctions/*/node_modules 

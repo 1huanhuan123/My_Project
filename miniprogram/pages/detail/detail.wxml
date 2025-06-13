@@ -1,0 +1,72 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+  <loading wx:if="{{isLoading}}"></loading>
+  
+  <view class="detail-container" wx:else>
+    <!-- 图片区域 -->
+    <view class="image-container" bindtap="previewImage">
+      <image class="detail-image" src="{{image.fileID}}" mode="widthFix"></image>
+    </view>
+    
+    <!-- 信息区域 -->
+    <view class="info-container">
+      <!-- 分类 -->
+      <view class="info-item">
+        <view class="info-label">分类</view>
+        <view class="info-value">{{image.category}}</view>
+      </view>
+      
+      <!-- 描述 -->
+      <view class="info-item" wx:if="{{image.description}}">
+        <view class="info-label">描述</view>
+        <view class="info-value">{{image.description}}</view>
+      </view>
+      
+      <!-- 标签 -->
+      <view class="info-item" wx:if="{{image.tags && image.tags.length}}">
+        <view class="info-label">标签</view>
+        <view class="info-value tags">
+          <view class="tag" wx:for="{{image.tags}}" wx:key="*this">{{item}}</view>
+        </view>
+      </view>
+      
+      <!-- 位置 -->
+      <view class="info-item" wx:if="{{image.location}}">
+        <view class="info-label">位置</view>
+        <view class="info-value">{{image.location}}</view>
+      </view>
+      
+      <!-- 统计信息 -->
+      <view class="stats-container">
+        <view class="stat-item">
+          <text class="iconfont icon-view"></text>
+          <text class="stat-text">{{image.views || 0}}</text>
+        </view>
+        <view class="stat-item">
+          <text class="iconfont icon-favorite {{image.isFavorite ? 'active' : ''}}"></text>
+          <text class="stat-text">{{image.favorites || 0}}</text>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 操作区域 -->
+    <view class="actions-container">
+      <button class="action-btn" bindtap="toggleFavorite">
+        <text class="iconfont icon-favorite {{image.isFavorite ? 'active' : ''}}"></text>
+        <text>{{image.isFavorite ? '取消收藏' : '收藏'}}</text>
+      </button>
+      <button class="action-btn" open-type="share">
+        <text class="iconfont icon-share"></text>
+        <text>分享</text>
+      </button>
+      <button class="action-btn" bindtap="editImage">
+        <text class="iconfont icon-edit"></text>
+        <text>编辑</text>
+      </button>
+      <button class="action-btn delete" bindtap="deleteImage">
+        <text class="iconfont icon-delete"></text>
+        <text>删除</text>
+      </button>
+    </view>
+  </view>
+</view>

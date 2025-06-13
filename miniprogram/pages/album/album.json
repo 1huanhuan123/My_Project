@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "image-card": "/components/image-card/image-card",
+    "empty-state": "/components/empty-state/empty-state",
+    "loading": "/components/loading/loading"
+  }
+}

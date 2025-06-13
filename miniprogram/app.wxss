@@ -1,0 +1,183 @@
+/**app.wxss**/
+/* 引入字体图标 */
+@font-face {
+  font-family: "iconfont";
+  src: url('data:font/woff2;charset=utf-8;base64,d09GMgABAAAAAAcIAAsAAAAADTQAAAa5AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHFQGYACECgqLbIl1ATYCJAMkCxQABCAFhGcHgQwbzwsjA8HGAQqwPwvZX8XAHWLrDRmBMBSLxbBYLJYDxQQUK+t5+H+t/X3uzJ1578z7qpZIT9LdxCMSSZBIJEKkEkk0QoVE6ISS9v/fWvsFGJAyxwPLAs9K0yaEpwQgYO7O3d1/kadFnMeTVhLNJvGQTJIgESKRxkQiIUQiRAgNEiG0yOjc+QMCCPy/tdab9CpdiVSRrkJi5p/fL3eS3xWwKlllXYWVdeYqVAFrw7qKqvLc+kJcCZcBVwLXzZMAAYxi5lO3H15JQGKBccuWZUkQJCYUMiEWQmKuYs8s4gEhVdJ94AHw3n1+/IesJJBUGRjXrtyXFqDyC77aqv7XQnQFQHs6G7iNyJgHFOJZqvMRWDTPQ2NUbVkXQFUl+YKvVn218qvN/9cjFUiVMhHrP3lUZJJGRFXAJDDZxPALvhAifMFCiPIFByHGFzyEJF/wEVJ8IUAo+EKIUEFbAQkUbSUkSGgrI0FGWwUJFG01JMhpS5CgoC1FgpK2DAkq2nIkqGkrIEFDWwkJWtoqSNDRVkOCnrYGEgy0tUgw0tYhwURbD0Az9oTAHiB5A6J+IFVvQJSx1piYWBsbLSUl1drYUC4kKbm0tKSEJCXFyHALZYwlxcWFhcXFJcWGhkuXLiXJBQVKJZIKCvLzi4qKiwoKTEyWLVtGkktLKyupqqwsL6+qqqqsrDAzW758OUmuqamrq62tq6mprq6vr6mpNjdfuXIlSW5sbGpqbGxuamhobmlpaWpusbBYvXo1SW5ra+/o6Ojsam/v6u7u7Orqsra2sbEhyT09vb29Pb19PT39/f39vf19Dg6Ojo4kubd3YGBgYHCgd3BoeHh4aHDIycnZ2Zkk9/UNDw8Pj4wMj4yOjY2Pjo65uLi6upLkgYHx8fHxifGBiampqcnxSXd3Dw8PkjwxMT09PT0zPT07Nzc3Oz3r6enl5UWSp6fn5+fnF+bnFxcXF+bnvby8vb1J8sLC0tLS0vLS4vLKysry0rKPj6+vL0leXl5dXV1dW11b39jY2Fhf9/Pz9/cnyfv7+/v7+wf7B4eHh4cHh/7+AQEBQUFBQUFBAQEB/v5+fn5+vr4+Pj7e3t5eXp6enp4eHu7u7m5urq4uLs7Ozk5OTk6Ojo4ODg4O9vZ2dra2NjY2NjbW1lZWlpaWlhYWFhbm5mZmZmampqampqYmJsbGRkZGRkZGhoYGBvr6+vp6erq6urq6Ojo6Ojo6Wlrq6mpqqqoqKioqysvLysrKSktLS0tKiotLSoqKCgsLCwsK8vPz8vJyc3NycnKys7OysrIyMzMyMtLT09LS0lJTU1JSUlKSk5OSkpISExMTEhLi4+Pi4mJjY2JiYqKjIyMjIyIiIiLCw8PCwsLCQkNDQkJCgoODgoKCAgMDAgICAvy9/bx9vby8vDw9PNzd3FxdXFycnZ0cHR3s7e1sbWysrKwsLS3MzczMTE1NTExMjI2NjIyMDA0N9PX1dHV1tLW1NLU0NDQ01NXV1FRUVFRUV1dVVVVVV1dXV1VVVlZWVlVVVVVWVlRUVFRUVFZWVFRUVFRUUlJSUlJSUFBQUFBQUFBQUFBQUFBQUFBQUFBQTk9PT09PT01NTU1NTUtLS0tLS0lJSUlJSUlJSUlJSUlJSUlJSUdHR0dHR0VFRUVFRUNDQwAA') format('woff2');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-landscape:before {
+  content: "\e600";
+}
+
+.icon-food:before {
+  content: "\e606";
+}
+
+.icon-travel:before {
+  content: "\e609";
+}
+
+.icon-life:before {
+  content: "\e60a";
+}
+
+.icon-work:before {
+  content: "\e60b";
+}
+
+.icon-other:before {
+  content: "\e60c";
+}
+
+.icon-view:before {
+  content: "\e60d";
+}
+
+.icon-favorite:before {
+  content: "\e60e";
+}
+
+.icon-edit:before {
+  content: "\e60f";
+}
+
+.icon-delete:before {
+  content: "\e610";
+}
+
+.icon-arrow:before {
+  content: "\e611";
+}
+
+.icon-search:before {
+  content: "\e612";
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 30rpx;
+  background-color: #f6f6f6;
+  min-height: 100vh;
+}
+
+.page-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 30rpx;
+}
+
+.section {
+  margin-bottom: 30rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.section-content {
+  background-color: #fff;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #4A90E2;
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+  line-height: 1.5;
+}
+
+.btn-default {
+  background-color: #f6f6f6;
+  color: #666;
+  border: 1rpx solid #ddd;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+  line-height: 1.5;
+}
+
+.form-group {
+  margin-bottom: 20rpx;
+}
+
+.form-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+}
+
+.form-input {
+  background-color: #f9f9f9;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.form-textarea {
+  background-color: #f9f9f9;
+  border-radius: 8rpx;
+  padding: 20rpx;
+  font-size: 28rpx;
+  color: #333;
+  width: 100%;
+  height: 200rpx;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-item {
+  width: 33.33%;
+  padding: 10rpx;
+  box-sizing: border-box;
+} 
+
+.tag {
+  display: inline-block;
+  padding: 6rpx 16rpx;
+  background-color: #f0f7ff;
+  color: #4A90E2;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+button {
+  background: initial;
+}
+
+button:focus{
+  outline: 0;
+}
+
+button::after{
+  border: none;
+}
+
+
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}

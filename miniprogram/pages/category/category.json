@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "分类",
+  "usingComponents": {
+    "category-card": "/components/category-card/category-card",
+    "loading": "/components/loading/loading"
+  }
+}

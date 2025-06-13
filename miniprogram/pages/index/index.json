@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我的图库",
+  "usingComponents": {
+    "category-card": "/components/category-card/category-card",
+    "image-card": "/components/image-card/image-card",
+    "empty-state": "/components/empty-state/empty-state",
+    "loading": "/components/loading/loading"
+  }
+}

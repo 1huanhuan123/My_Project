@@ -1,0 +1,70 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+  <!-- 搜索框 -->
+  <view class="search-header">
+    <view class="search-input-box">
+      <image class="search-icon" src="/images/search.png" mode="aspectFit"></image>
+      <input 
+        class="search-input" 
+        placeholder="搜索图片" 
+        value="{{keyword}}" 
+        bindinput="onKeywordInput"
+        bindconfirm="onKeywordConfirm"
+        confirm-type="search">
+      </input>
+      <text class="iconfont icon-clear" wx:if="{{keyword}}" bindtap="clearKeyword"></text>
+    </view>
+    <view class="search-btn" bindtap="searchImages">搜索</view>
+  </view>
+  
+  <!-- 搜索结果 -->
+  <view class="search-result" wx:if="{{isSearched}}">
+    <loading wx:if="{{isLoading && !images.length}}"></loading>
+    
+    <empty-state 
+      wx:elif="{{!images.length}}" 
+      text="未找到相关图片" 
+      buttonText="返回首页" 
+      showButton="{{false}}">
+    </empty-state>
+    
+    <view class="result-header" wx:elif="{{images.length}}">
+      找到 {{total}} 张相关图片
+    </view>
+    
+    <view class="image-list" wx:if="{{images.length}}">
+      <block wx:for="{{images}}" wx:key="_id">
+        <image-card 
+          image="{{item}}" 
+          showActions="{{false}}" 
+          bind:imagetap="onImageTap">
+        </image-card>
+      </block>
+      
+      <view class="loading-more" wx:if="{{isLoading && images.length}}">
+        <loading text="加载更多..."></loading>
+      </view>
+      
+      <view class="no-more" wx:if="{{!hasMore && images.length}}">
+        -- 已加载全部图片 --
+      </view>
+    </view>
+  </view>
+  
+  <!-- 搜索提示 -->
+  <view class="search-tips" wx:elif="{{!isSearched}}">
+    <view class="tips-title">搜索提示</view>
+    <view class="tips-item">
+      <text class="tips-dot">•</text>
+      <text class="tips-text">可以搜索图片描述、标签或位置</text>
+    </view>
+    <view class="tips-item">
+      <text class="tips-dot">•</text>
+      <text class="tips-text">尝试使用不同的关键词组合</text>
+    </view>
+    <view class="tips-item">
+      <text class="tips-dot">•</text>
+      <text class="tips-text">关键词越精确，搜索结果越准确</text>
+    </view>
+  </view>
+</view>

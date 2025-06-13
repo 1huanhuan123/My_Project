@@ -1,0 +1,82 @@
+<!--pages/profile/profile.wxml-->
+<view class="container">
+  <!-- 未登录状态 -->
+  <view class="login-container" wx:if="{{!isLogin}}">
+    <image class="login-image" src="/images/login.png" mode="aspectFit"></image>
+    <view class="login-title">欢迎使用我的图库</view>
+    <view class="login-desc">请使用微信账号登录，以便保存和管理您的图片</view>
+    <button class="btn-primary login-btn" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">
+      <text class="wechat-icon">微信</text>
+      微信账号登录
+    </button>
+  </view>
+  
+  <!-- 已登录状态 -->
+  <block wx:else>
+    <!-- 用户信息 -->
+    <view class="user-info">
+      <image class="user-avatar" src="{{avatarFileID || userInfo.avatarUrl}}" mode="aspectFill"></image>
+      <view class="user-name">{{userInfo.nickName}}</view>
+    </view>
+    
+    <!-- 标签页 -->
+    <view class="tabs">
+      <view 
+        class="tab-item {{activeTab === 'favorites' ? 'active' : ''}}" 
+        data-tab="favorites" 
+        bindtap="switchTab">
+        我的收藏
+      </view>
+      <view 
+        class="tab-item {{activeTab === 'settings' ? 'active' : ''}}" 
+        data-tab="settings" 
+        bindtap="switchTab">
+        设置
+      </view>
+    </view>
+    
+    <!-- 收藏内容 -->
+    <view class="tab-content" wx:if="{{activeTab === 'favorites'}}">
+      <loading wx:if="{{isLoading && !favoriteImages.length}}"></loading>
+      
+      <empty-state 
+        wx:elif="{{!favoriteImages.length}}" 
+        text="暂无收藏" 
+        buttonText="去浏览" 
+        showButton="{{false}}">
+      </empty-state>
+      
+      <view class="image-list" wx:else>
+        <block wx:for="{{favoriteImages}}" wx:key="_id">
+          <image-card 
+            image="{{item}}" 
+            showActions="{{false}}" 
+            bind:imagetap="onImageTap">
+          </image-card>
+        </block>
+        
+        <view class="loading-more" wx:if="{{isLoading && favoriteImages.length}}">
+          <loading text="加载更多..."></loading>
+        </view>
+        
+        <view class="no-more" wx:if="{{!hasMore && favoriteImages.length}}">
+          -- 已加载全部图片 --
+        </view>
+      </view>
+    </view>
+    
+    <!-- 设置内容 -->
+    <view class="tab-content" wx:if="{{activeTab === 'settings'}}">
+      <view class="settings-list">
+        <view class="settings-item" bindtap="onAboutTap">
+          <text class="settings-text">关于我们</text>
+          <text class="iconfont icon-arrow"></text>
+        </view>
+        <view class="settings-item" bindtap="onClearCacheTap">
+          <text class="settings-text">清除缓存</text>
+          <text class="iconfont icon-arrow"></text>
+        </view>
+      </view>
+    </view>
+  </block>
+</view> 

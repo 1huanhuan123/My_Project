@@ -1,0 +1,77 @@
+<!--pages/upload/upload.wxml-->
+<view class="container">
+  <view class="page-title">上传图片</view>
+  
+  <view class="upload-container">
+    <!-- 图片选择区域 -->
+    <view class="image-picker" bindtap="chooseImage">
+      <block wx:if="{{tempFilePath}}">
+        <image class="preview-image" src="{{tempFilePath}}" mode="aspectFill"></image>
+      </block>
+      <view class="picker-placeholder" wx:else>
+        <text class="iconfont icon-upload"></text>
+        <text class="picker-text">点击选择图片</text>
+      </view>
+    </view>
+    
+    <!-- 表单区域 -->
+    <view class="form-container">
+      <!-- 分类选择 -->
+      <view class="form-group">
+        <view class="form-label">分类</view>
+        <picker
+          bindchange="onCategoryChange"
+          value="{{selectedCategory}}"
+          range="{{categories}}"
+          range-key="name"
+        >
+          <view class="form-picker">
+            {{selectedCategoryName}}
+            <text class="iconfont icon-arrow"></text>
+          </view>
+        </picker>
+      </view>
+      
+      <!-- 描述 -->
+      <view class="form-group">
+        <view class="form-label">描述</view>
+        <textarea
+          class="form-textarea"
+          placeholder="输入图片描述"
+          value="{{description}}"
+          bindinput="onDescriptionInput">
+        </textarea>
+      </view>
+      
+      <!-- 标签 -->
+      <view class="form-group">
+        <view class="form-label">标签（用逗号分隔）</view>
+        <input
+          class="form-input"
+          placeholder="输入标签，如：风景,自然,旅行"
+          value="{{tags}}"
+          bindinput="onTagsInput">
+        </input>
+      </view>
+      
+      <!-- 位置 -->
+      <view class="form-group">
+        <view class="form-label">位置</view>
+        <input
+          class="form-input"
+          placeholder="输入拍摄位置"
+          value="{{location}}"
+          bindinput="onLocationInput">
+        </input>
+      </view>
+      
+      <!-- 上传按钮 -->
+      <button
+        class="btn-primary upload-btn"
+        bindtap="uploadImage"
+        disabled="{{isUploading}}">
+        {{isUploading ? '上传中...' : '上传图片'}}
+      </button>
+    </view>
+  </view>
+</view> 

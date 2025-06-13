@@ -1,0 +1,87 @@
+/* components/image-card/image-card.wxss */
+.image-card {
+  position: relative;
+  width: 100%;
+  border-radius: 12rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.card-image {
+  width: 100%;
+  height: 400rpx;
+}
+
+.card-info {
+  padding: 20rpx;
+}
+
+.card-category {
+  font-size: 28rpx;
+  color: #4A90E2;
+  margin-bottom: 10rpx;
+}
+
+.card-description {
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card-stats {
+  display: flex;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20rpx;
+}
+
+.stat-text {
+  margin-left: 6rpx;
+}
+
+.card-actions {
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8rpx;
+  padding: 10rpx;
+}
+
+.action-item {
+  padding: 10rpx;
+}
+
+.iconfont {
+  font-size: 36rpx;
+}
+
+.icon-favorite.active {
+  color: #ff4d4f;
+}
+
+.icon-view {
+  color: #52c41a;
+}
+
+.icon-edit {
+  color: #4A90E2;
+}
+
+.icon-delete {
+  color: #ff4d4f;
+} 

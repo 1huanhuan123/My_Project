@@ -1,0 +1,29 @@
+<!-- components/image-card/image-card.wxml -->
+<view class="image-card" bindtap="onImageTap">
+  <image class="card-image" src="{{image.fileID}}" mode="aspectFill"></image>
+  <view class="card-info">
+    <view class="card-category">{{image.category}}</view>
+    <view class="card-description" wx:if="{{image.description}}">{{image.description}}</view>
+    <view class="card-stats">
+      <view class="stat-item">
+        <text class="iconfont icon-view"></text>
+        <text class="stat-text">{{image.views || 0}}</text>
+      </view>
+      <view class="stat-item">
+        <text class="iconfont icon-favorite {{image.isFavorite ? 'active' : ''}}"></text>
+        <text class="stat-text">{{image.favorites || 0}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="card-actions" wx:if="{{showActions}}">
+    <view class="action-item" catchtap="onEditTap">
+      <text class="iconfont icon-edit"></text>
+    </view>
+    <view class="action-item" catchtap="onFavoriteTap">
+      <text class="iconfont icon-favorite {{image.isFavorite ? 'active' : ''}}"></text>
+    </view>
+    <view class="action-item" catchtap="onDeleteTap">
+      <text class="iconfont icon-delete"></text>
+    </view>
+  </view>
+</view> 

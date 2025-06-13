@@ -1,0 +1,62 @@
+<!--index.wxml-->
+<view class="container">
+  <!-- 未登录状态 -->
+  <view class="login-container" wx:if="{{!isLogin}}">
+    <image class="login-image" src="/images/login.png" mode="aspectFit"></image>
+    <view class="login-title">欢迎使用我的图库</view>
+    <view class="login-desc">请使用微信账号登录，以便保存和管理您的图片</view>
+    <button class="btn-primary login-btn" open-type="getUserInfo" bindgetuserinfo="onGetUserInfo">
+      <text class="wechat-icon">微信</text>
+      微信账号登录
+    </button>
+  </view>
+  
+  <!-- 已登录状态 -->
+  <block wx:else>
+    <!-- 头部搜索 -->
+    <view class="search-box" bindtap="onSearchTap">
+      <image class="search-icon" src="/images/search.png" mode="aspectFit"></image>
+      <text class="search-placeholder">搜索图片</text>
+    </view>
+    
+    <!-- 分类列表 -->
+    <view class="section">
+      <view class="section-title">分类浏览</view>
+      <view class="section-content">
+        <view class="category-list">
+          <block wx:for="{{categories}}" wx:key="id">
+            <category-card 
+              category="{{item}}" 
+              count="{{categoryCount[item.id] || 0}}" 
+              bind:categorytap="onCategoryTap">
+            </category-card>
+          </block>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 最近上传 -->
+    <view class="section">
+      <view class="section-title">最近上传</view>
+      <view class="section-content">
+        <loading wx:if="{{isLoading}}"></loading>
+        <empty-state 
+          wx:elif="{{!recentImages.length}}" 
+          text="暂无图片" 
+          buttonText="立即上传" 
+          showButton="{{true}}" 
+          bind:buttontap="onUploadTap">
+        </empty-state>
+        <view class="image-list" wx:else>
+          <block wx:for="{{recentImages}}" wx:key="_id">
+            <image-card 
+              image="{{item}}" 
+              showActions="{{false}}" 
+              bind:imagetap="onImageTap">
+            </image-card>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
